@@ -6,14 +6,12 @@ class TeamsService {
 
     return teams;
   }
+
+  static async getTeamsById(teamId: number) {
+    const teams = await Teams.findByPk(teamId);
+
+    return teams;
+  }
 }
-
-// class TeamsById {
-//   static async getTeamsById(teamId: number) {
-//     const teams = await Teams.findByPk(teamId);
-
-//     return teams;
-//   }
-// }
 
 export default TeamsService;

@@ -12,6 +12,7 @@ class App {
     // Não remover essa rota
     this.app.get('/', (req, res) => res.json({ ok: true }));
     this.app.use('/teams', teams);
+    this.app.use('/teams/:id', teams);
   }
 
   private config():void {
