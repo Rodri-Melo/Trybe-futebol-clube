@@ -1,9 +1,9 @@
 import { Router } from 'express';
 import UserControler from '../controllers/users.controllers';
-import loginAuth from '../middlewares/loginAuth';
+import { validateInput, validateUser } from '../middlewares/loginAuth';
 
 const teamsRouter = Router();
 
-teamsRouter.post('/', loginAuth, UserControler.login);
+teamsRouter.post('/', validateInput, validateUser, UserControler.login);
 
 export default teamsRouter;
