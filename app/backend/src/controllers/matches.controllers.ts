@@ -13,17 +13,12 @@ class MatchesController {
     return res.status(200).json(matchesInProgress);
   }
 
-  // static async getInProgressMatches(req: Request, res: Response) {
-  //   const matches = await MatchesService.getInProgressMatches();
+  static async finishMatches(req: Request, res: Response) {
+    const { id } = req.params;
 
-  //   return res.status(200).json(matches);
-  // }
-
-  // static async getCompletedMatches(req: Request, res: Response) {
-  //   const matches = await MatchesService.getCompletedMatches();
-
-  //   return res.status(200).json(matches);
-  // }
+    const finish = await MatchesService.finishMatches(+id);
+    return res.status(200).json(finish);
+  }
 }
 
 export default MatchesController;

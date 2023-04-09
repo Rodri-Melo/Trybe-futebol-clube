@@ -25,16 +25,9 @@ class MatchesServices {
     return matches;
   }
 
-  static async getCompletedMatches() {
-    const matches = await Matches.findAll({
-      where: { inProgress: false },
-      include: [
-        { model: Teams, as: 'homeTeam', attributes: ['teamName'] },
-        { model: Teams, as: 'awayTeam', attributes: ['teamName'] },
-      ],
-    });
-
-    return matches;
+  static async finishMatches(id: number) {
+    const findId = await Matches.update({ inProgress: false }, { where: { id } });
+    return findId;
   }
 }
 
