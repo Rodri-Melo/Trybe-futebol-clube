@@ -19,6 +19,7 @@ class App {
     this.app.use('/login/role', users);
     this.app.use('/matches', matches);
     this.app.use('/matches/:id/finish', matches);
+    this.app.use('/matches/:id', matches);
   }
 
   private config():void {

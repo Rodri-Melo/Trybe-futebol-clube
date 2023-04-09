@@ -6,5 +6,6 @@ const Matches = Router();
 
 Matches.get('/', MatchesController.getAllMatches);
 Matches.patch('/:id/finish', verify.verify, MatchesController.finishMatches);
+Matches.patch('/:id', verify.verify, MatchesController.updateInProgressMatches);
 
 export default Matches;

@@ -19,6 +19,14 @@ class MatchesController {
     const finish = await MatchesService.finishMatches(+id);
     return res.status(200).json(finish);
   }
+
+  static async updateInProgressMatches(req: Request, res: Response) {
+    const { id } = req.params;
+    const { homeTeamGoals, awayTeamGoals } = req.body;
+
+    const update = await MatchesService.updateInProgressMatches(+id, homeTeamGoals, awayTeamGoals);
+    return res.status(200).json(update);
+  }
 }
 
 export default MatchesController;

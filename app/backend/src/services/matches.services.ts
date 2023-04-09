@@ -29,6 +29,11 @@ class MatchesServices {
     const findId = await Matches.update({ inProgress: false }, { where: { id } });
     return findId;
   }
+
+  static async updateInProgressMatches(id: number, homeTeamGoals: number, awayTeamGoals: number) {
+    const findId = await Matches.update({ homeTeamGoals, awayTeamGoals }, { where: { id } });
+    return findId;
+  }
 }
 
 export default MatchesServices;
