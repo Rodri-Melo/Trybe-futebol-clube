@@ -34,6 +34,28 @@ class MatchesServices {
     const findId = await Matches.update({ homeTeamGoals, awayTeamGoals }, { where: { id } });
     return findId;
   }
+
+  static async newMatches(
+    homeTeamId: number,
+    awayTeamId: number,
+    homeTeamGoals: number,
+    awayTeamGoals: number,
+  ) {
+    const newMatche = await Matches.create(
+      { homeTeamId, homeTeamGoals, awayTeamId, awayTeamGoals, inProgress: true },
+    );
+    return newMatche;
+  }
+
+  // static async equalTeam(homeTeamId: number, awayTeamId: number) {
+  //   const valid = await Matches.findOne({
+  //     where: {
+  //       homeTeamId,
+  //       awayTeamId,
+  //     },
+  //   });
+  //   return valid;
+  // }
 }
 
 export default MatchesServices;

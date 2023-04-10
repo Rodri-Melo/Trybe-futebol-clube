@@ -36,6 +36,7 @@ describe('Testes da rota /Users', () => {
   })
   describe('quando o POST foi feito com sucesso', () => {
     it('deve retornar status 200', async () => {
+      
       const user = {
         id: 1,
         email: 'admin@admin.com',
