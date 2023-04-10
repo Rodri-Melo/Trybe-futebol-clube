@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import MatchesService from '../services/matches.services';
+import Matches from '../database/models/Matches';
 
 class MatchesController {
   static async getAllMatches(req: Request, res: Response) {
@@ -30,6 +31,15 @@ class MatchesController {
 
   static async newMatches(req: Request, res: Response) {
     const { homeTeamId, homeTeamGoals, awayTeamId, awayTeamGoals } = req.body;
+
+    const homeTeam = await Matches.findOne({ where: { id: homeTeamId } });
+    const awayTeam = await Matches.findOne({ where: { id: awayTeamId } });
+
+    if (!homeTeam || !awayTeam) {
+      return res.status(404).json({
+        message: 'There is no team with such id!',
+      });
+    }
 
     if (homeTeamId === awayTeamId) {
       return res.status(422).json({

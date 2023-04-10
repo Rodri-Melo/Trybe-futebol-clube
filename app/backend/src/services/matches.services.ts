@@ -37,8 +37,8 @@ class MatchesServices {
 
   static async newMatches(
     homeTeamId: number,
-    awayTeamId: number,
     homeTeamGoals: number,
+    awayTeamId: number,
     awayTeamGoals: number,
   ) {
     const newMatche = await Matches.create(
