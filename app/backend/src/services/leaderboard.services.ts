@@ -157,6 +157,56 @@ class LeaderboardService {
 
     return teamsWithTotalGames;
   }
+
+  static async goalsDiff() {
+    const teams = await this.all();
+    const result = teams.map((team) => team.goalsFavor - team.goalsOwn);
+    return result;
+  }
+
+  static async sort() {
+    await this.all();
+
+    const sortedTeams = await this.all();
+    const goalsDiff = await this.goalsDiff();
+
+    const newData = sortedTeams.map((team, index) => ({
+      name: team.name,
+      totalPoints: team.totalPoints,
+      totalGames: team.totalGames,
+      totalVictories: team.totalVictories,
+      totalDraws: team.totalDraws,
+      totalLosses: team.totalLosses,
+      goalsFavor: team.goalsFavor,
+      goalsOwn: team.goalsOwn,
+      goalsBalance: goalsDiff[index],
+      efficiency: ((team.totalPoints / (team.totalGames * 3)) * 100).toFixed(2),
+    }));
+
+    return newData;
+  }
+
+  static async orderByAll() {
+    const teams = await this.sort();
+
+    teams.sort((teamA, teamB) => {
+      if (teamA.totalPoints !== teamB.totalPoints) {
+        return teamB.totalPoints - teamA.totalPoints;
+      }
+
+      if (teamA.totalVictories !== teamB.totalVictories) {
+        return teamB.totalVictories - teamA.totalVictories;
+      }
+
+      if (teamA.goalsBalance !== teamB.goalsBalance) {
+        return teamB.goalsBalance - teamA.goalsBalance;
+      }
+
+      return teamB.goalsFavor - teamA.goalsFavor;
+    });
+
+    return teams;
+  }
 }
 
 export default LeaderboardService;
