@@ -5,5 +5,6 @@ const leader = Router();
 
 leader.get('/home', LeaderboardController.getAllTeamsHome);
 leader.get('/away', LeaderboardController.getAllTeamsAway);
+leader.get('/', LeaderboardController.getAllTeams);
 
 export default leader;

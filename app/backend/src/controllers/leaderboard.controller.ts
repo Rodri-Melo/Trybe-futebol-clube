@@ -13,6 +13,12 @@ class LeaderboardController {
 
     return res.status(200).json(all);
   }
+
+  static async getAllTeams(req: Request, res: Response) {
+    const all = await LeaderboardService.orderedTeams();
+
+    return res.status(200).json(all);
+  }
 }
 
 export default LeaderboardController;
