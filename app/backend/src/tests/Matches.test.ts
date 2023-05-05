@@ -7,8 +7,6 @@ import { app } from '../app';
 import MatchesModels from '../database/models/Matches'
 import matchesMock from './mocks/allMatches.mock'
 import { Response } from 'superagent';
-import MatchesServices from '../services/matches.services';
-import MatchesController from '../controllers/matches.controllers';
 chai.use(chaiHttp);
 
 const { expect } = chai;
