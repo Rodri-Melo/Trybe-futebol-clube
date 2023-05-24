@@ -2,7 +2,7 @@
 
 ## Descrição
 
-O projeto TFC é o ultimo projeto do módulo de back-end no curso de desenvolvimento da Trybe, é um projeto full stack, que já vem com o front-end feito, apenas o back-end foi feito por mim, nele você consegue logar utilizando login e senha que gerarão um token de modo a garantir sua segurança, após o login, temos a exibição das partidas dos times, tanto em andamento quanto as encerradas, é possivel também ver a classificação dos times filtrando por partidas em casa, fora, ou geral.
+O projeto TFC é o ultimo projeto do módulo de back-end no curso de desenvolvimento da Trybe, é um projeto full stack, que já vem com o front-end feito pela Trybe, apenas o back-end foi feito por mim, nele você consegue logar utilizando login e senha que gerarão um token de modo a garantir sua segurança, após o login, temos a exibição das partidas dos times, tanto em andamento quanto as encerradas, é possivel também ver a classificação dos times filtrando por partidas em casa, fora, ou geral.
 
 ## Tecnologias e Ferramentas
 
